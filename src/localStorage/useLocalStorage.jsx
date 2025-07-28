@@ -6,7 +6,7 @@ export default function useLocalStorage(key, defaultValue) {
 
     try {
       currentValue = JSON.parse(
-        localStorage.getItem(ket) | String(defaultValue)
+        localStorage.getItem(key) || String(defaultValue)
       );
     } catch (e) {
       console.log("Failed to save to localStorage:", e);
@@ -14,8 +14,10 @@ export default function useLocalStorage(key, defaultValue) {
     }
     return currentValue;
   });
-  localStorage.setItem(key, JSON.stringify(value));
-  useEffect(() => {}, [key, value]);
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
 
   return [value, setValue];
 }
