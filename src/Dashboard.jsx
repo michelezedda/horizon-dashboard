@@ -42,7 +42,7 @@ function Dashboard() {
     return (
       <>
         <div
-          className="theme-mode rounded-2xl shadow-md m-1 sm:m-4"
+          className="theme-mode sm:rounded-2xl shadow-md sm:m-4"
           data-theme={theme}
         >
           <div className="w-max-screen">
@@ -122,7 +122,7 @@ function Dashboard() {
           duration: 0.4,
           scale: { type: "spring", visualDuration: 0.4, bounce: 0.1 },
         }}
-        className="theme-mode rounded-2xl shadow-md"
+        className="theme-mode sm:rounded-2xl shadow-md sm:m-4"
         data-theme={theme}
       >
         <div className="w-max-screen">
