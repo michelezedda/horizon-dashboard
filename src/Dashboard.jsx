@@ -47,7 +47,7 @@ function Dashboard() {
         >
           <div className="w-max-screen">
             <Navbar theme={theme} handleTheme={handleTheme} />
-            <div className="flex flex-col justify-start items-center mx-4">
+            <div className="flex flex-col justify-start items-center mx-4 sm:mx-20">
               <img
                 src={`${
                   theme === "forest"
