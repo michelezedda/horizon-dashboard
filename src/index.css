@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+
+:root {
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #ff8888a9;
+  margin: 14px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sx-react-calendar-wrapper {
+  width: auto;
+  max-width: 100vw;
+  height: 800px;
+  max-height: 90vh;
+  color: #ff8888a9;
+}
+
+[data-theme="cupcake"] {
+  --sx-color-primary: #ff5757;
+  --sx-color-on-primary: #fff;
+  --sx-color-background: #fff1f2;
+  --sx-color-primary-container: #ffdddd;
+  --sx-color-on-primary-container: #000000;
+  --sx-internal-color-text: #000;
+  --sx-internal-color-light-gray: #ffe6e6;
+  --sx-color-on-background: #ff5757;
+  --sx-color-surface: #fdf4ff;
+  --sx-color-on-surface: #ff5757;
+  --sx-color-surface-dim: #ffacac;
+}
+
+[data-theme="forest"] {
+  --sx-color-primary: #ff5757;
+  --sx-color-on-primary: #fff;
+  --sx-color-background: #1b1717;
+  --sx-color-primary-container: #ffdddd;
+  --sx-color-on-primary-container: #000;
+  --sx-internal-color-text: #fff;
+  --sx-internal-color-light-gray: #423636;
+  --sx-color-on-background: #ff5757;
+  --sx-color-surface: #f0fdf4;
+  --sx-color-on-surface: #ff5757;
+  --sx-color-surface-dim: #ffacac;
+}
+
+.react-datepicker-popper {
+  z-index: 99999 !important;
+}
