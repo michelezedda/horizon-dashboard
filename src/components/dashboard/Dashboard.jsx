@@ -1,9 +1,8 @@
 import Navbar from "../Navbar";
-import { useSelectedUser, useLogin } from "../../store/store";
+import { useSelectedUser, useLogin, useSelectedRoute } from "../../store/store";
 import users from "../../data/users";
 import { useState } from "react";
 import { motion } from "motion/react";
-import Grid from "./Grid";
 
 function Dashboard({ theme, handleTheme }) {
   const [loginError, setLoginError] = useState(false);
@@ -11,6 +10,7 @@ function Dashboard({ theme, handleTheme }) {
   const { login, setLogin } = useLogin();
   const { selectedUser, setSelectedUser, password, setPassword } =
     useSelectedUser();
+  const { selectedRoute } = useSelectedRoute();
 
   const today = new Date().toLocaleString("en-US", {
     weekday: "long",
@@ -149,7 +149,7 @@ function Dashboard({ theme, handleTheme }) {
           <h2 className="pl-5 pt-4">
             Today is <span className="font-semibold">{today}</span>
           </h2>
-          <Grid />
+          {selectedRoute?.component || <p>Route not found</p>}
         </div>
       </motion.div>
     </>

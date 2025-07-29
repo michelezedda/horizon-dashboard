@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import Grid from "../components/dashboard/Grid";
 
 export const useSelectedUser = create((set) => ({
   selectedUser: "",
@@ -10,4 +11,9 @@ export const useSelectedUser = create((set) => ({
 export const useLogin = create((set) => ({
   login: false,
   setLogin: (login) => set(() => ({ login })),
+}));
+
+export const useSelectedRoute = create((set) => ({
+  selectedRoute: { title: "Dashboard", component: <Grid /> },
+  setSelectedRoute: (route) => set({ selectedRoute: route }),
 }));
