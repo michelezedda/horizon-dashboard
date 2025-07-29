@@ -65,7 +65,7 @@ function Navbar({ theme, handleTheme }) {
                     setLogin(false);
                   }}
                 >
-                  <a>Logout</a>
+                  <a>Log out</a>
                 </li>
               </ul>
             </div>

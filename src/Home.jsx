@@ -1,5 +1,5 @@
-import Dashboard from "./components/Dashboard";
-import Sidebar from "./components/Sidebar";
+import Dashboard from "./components/dashboard/Dashboard";
+import Sidebar from "./components/sidebar/Sidebar";
 import Footer from "./components/Footer";
 import useLocalStorage from "./localStorage/useLocalStorage";
 import { useLogin } from "./store/store";
@@ -30,7 +30,7 @@ function Home() {
     <>
       <main>
         <div className="grid gap-4 p-4 grid-cols-[220px_1fr]">
-          <Sidebar />
+          <Sidebar theme={theme} />
           <Dashboard theme={theme} handleTheme={handleTheme} />
         </div>
         <div className="mx-4">

@@ -1,9 +1,9 @@
-import Navbar from "./Navbar";
-import { useSelectedUser, useLogin } from "../store/store";
-import users from "../data/users";
+import Navbar from "../Navbar";
+import { useSelectedUser, useLogin } from "../../store/store";
+import users from "../../data/users";
 import { useState } from "react";
 import { motion } from "motion/react";
-import MyCalendar from "./MyCalendar";
+import Grid from "./Grid";
 
 function Dashboard({ theme, handleTheme }) {
   const [loginError, setLoginError] = useState(false);
@@ -34,7 +34,7 @@ function Dashboard({ theme, handleTheme }) {
   if (!login) {
     return (
       <>
-        <div className="theme-mode rounded-2xl shadow-lg" data-theme={theme}>
+        <div className="rounded-2xl shadow-lg" data-theme={theme}>
           <div className="w-max-full">
             <Navbar theme={theme} handleTheme={handleTheme} />
             <div className="flex flex-col justify-start items-center">
@@ -118,7 +118,7 @@ function Dashboard({ theme, handleTheme }) {
       >
         <div>
           <Navbar theme={theme} handleTheme={handleTheme} />
-          <MyCalendar />
+          <Grid />
         </div>
       </motion.div>
     </>
