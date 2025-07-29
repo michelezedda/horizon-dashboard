@@ -1,8 +1,7 @@
 import { useSelectedUser, useLogin } from "../store/store";
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
 
-function Navbar({ theme, handleTheme }) {
+function Navbar({ handleTheme }) {
   const { selectedUser } = useSelectedUser();
   const { login, setLogin } = useLogin();
 
@@ -19,19 +18,7 @@ function Navbar({ theme, handleTheme }) {
 
   return (
     <>
-      <nav className="navbar rounded-t-2xl shadow-sm">
-        <div className="flex-1">
-          <Link to={"/"} className="btn btn-ghost w-30 py-6">
-            <img
-              src={`${
-                theme === "forest"
-                  ? "/media/logo-white.png"
-                  : "/media/logo-black.png"
-              }`}
-              alt="horizon logo"
-            />
-          </Link>
-        </div>
+      <nav className="navbar flex justify-end rounded-t-2xl shadow-sm">
         {login && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
