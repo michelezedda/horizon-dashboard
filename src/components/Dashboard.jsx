@@ -1,19 +1,16 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import { useSelectedUser, useLogin } from "./store/store";
-import users from "./data/users";
-import useLocalStorage from "./localStorage/useLocalStorage";
+import Navbar from "./Navbar";
+import { useSelectedUser, useLogin } from "../store/store";
+import users from "../data/users";
 import { useState } from "react";
 import { motion } from "motion/react";
-import MyCalendar from "./components/MyCalendar";
+import MyCalendar from "./MyCalendar";
 
-function Dashboard() {
+function Dashboard({ theme, handleTheme }) {
   const [loginError, setLoginError] = useState(false);
   const [loading, setLoading] = useState(false);
   const { login, setLogin } = useLogin();
   const { selectedUser, setSelectedUser, password, setPassword } =
     useSelectedUser();
-  const [theme, setTheme] = useLocalStorage("theme", "cupcake");
 
   const handleUserLogin = (e) => {
     e.preventDefault();
@@ -34,20 +31,16 @@ function Dashboard() {
     }
   };
 
-  const handleTheme = () => {
-    setTheme(theme === "cupcake" ? "forest" : "cupcake");
-  };
-
   if (!login) {
     return (
       <>
         <div
-          className="theme-mode sm:rounded-2xl shadow-md sm:m-4"
+          className="theme-mode rounded-2xl shadow-lg z-10"
           data-theme={theme}
         >
-          <div className="w-max-screen">
+          <div className="w-max-full">
             <Navbar theme={theme} handleTheme={handleTheme} />
-            <div className="flex flex-col justify-start items-center mx-4 sm:mx-20">
+            <div className="flex flex-col justify-start items-center">
               <img
                 src={`${
                   theme === "forest"
@@ -62,13 +55,15 @@ function Dashboard() {
                   <select
                     value={selectedUser || ""}
                     className="select w-100"
-                    onChange={(e) => setSelectedUser(e.target.value)}
+                    onChange={(e) =>
+                      setSelectedUser(JSON.parse(e.target.value))
+                    }
                   >
                     <option value="" disabled>
                       Pick a user
                     </option>
                     {users.map((user) => (
-                      <option key={user.id} value={user.name}>
+                      <option key={user.id} value={JSON.stringify(user)}>
                         {user.name}
                       </option>
                     ))}
@@ -106,7 +101,6 @@ function Dashboard() {
                 </form>
               </div>
             </div>
-            <Footer />
           </div>
         </div>
       </>
@@ -122,13 +116,12 @@ function Dashboard() {
           duration: 0.4,
           scale: { type: "spring", visualDuration: 0.4, bounce: 0.1 },
         }}
-        className="theme-mode sm:rounded-2xl shadow-md sm:m-4"
+        className="theme-mode rounded-2xl shadow-lg h-max-[100dvh]"
         data-theme={theme}
       >
-        <div className="w-max-screen">
+        <div>
           <Navbar theme={theme} handleTheme={handleTheme} />
           <MyCalendar />
-          <Footer />
         </div>
       </motion.div>
     </>

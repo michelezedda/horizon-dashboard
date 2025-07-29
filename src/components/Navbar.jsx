@@ -6,6 +6,17 @@ function Navbar({ theme, handleTheme }) {
   const { selectedUser } = useSelectedUser();
   const { login, setLogin } = useLogin();
 
+  const welcomeMessage = () => {
+    const message = ["Welcome", "Hi", "Hello", "Howdy"];
+    const randomMessage = Math.floor(Math.random() * message.length);
+    return (
+      <h2 className="mr-2 pl-2">
+        {message[randomMessage]},{" "}
+        <span className="font-bold">{selectedUser.name}</span>
+      </h2>
+    );
+  };
+
   return (
     <>
       <nav className="navbar rounded-t-2xl shadow-sm">
@@ -34,12 +45,10 @@ function Navbar({ theme, handleTheme }) {
             role="button"
             tabIndex={0}
           >
-            <h2 className="mr-2 pl-2">
-              Welcome <span className="font-bold">{selectedUser}</span>
-            </h2>
+            {welcomeMessage()}
             <div className="btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img alt="icon" src="/media/icon1.jpg" />
+                <img src={selectedUser.img} alt="user icon" />
               </div>
               <ul
                 tabIndex={0}
