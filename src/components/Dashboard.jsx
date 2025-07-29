@@ -34,10 +34,7 @@ function Dashboard({ theme, handleTheme }) {
   if (!login) {
     return (
       <>
-        <div
-          className="theme-mode rounded-2xl shadow-lg z-10"
-          data-theme={theme}
-        >
+        <div className="theme-mode rounded-2xl shadow-lg" data-theme={theme}>
           <div className="w-max-full">
             <Navbar theme={theme} handleTheme={handleTheme} />
             <div className="flex flex-col justify-start items-center">
