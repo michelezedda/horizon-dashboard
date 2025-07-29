@@ -6,7 +6,7 @@ function Search({ theme }) {
 
   return (
     <>
-      <label className="input mt-4" data-theme={theme}>
+      <label className="input mt-4 w-full" data-theme={theme}>
         <svg
           className="h-[1em] opacity-50"
           xmlns="http://www.w3.org/2000/svg"

@@ -31,7 +31,7 @@ function RouteSelect() {
   };
 
   return (
-    <div className="space-y-1 mt-4">
+    <div className="space-y-1 mt-4 gap-2 flex md:flex-col">
       {routes.map((route) => (
         <Route
           key={route.title}

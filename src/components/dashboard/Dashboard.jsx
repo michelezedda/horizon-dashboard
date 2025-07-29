@@ -12,13 +12,6 @@ function Dashboard({ theme, handleTheme }) {
     useSelectedUser();
   const { selectedRoute } = useSelectedRoute();
 
-  const today = new Date().toLocaleString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   const handleUserLogin = (e) => {
     e.preventDefault();
 
@@ -146,10 +139,9 @@ function Dashboard({ theme, handleTheme }) {
       >
         <div>
           <Navbar theme={theme} handleTheme={handleTheme} />
-          <h2 className="pl-5 pt-4">
-            Today is <span className="font-semibold">{today}</span>
-          </h2>
-          {selectedRoute?.component || <p>Route not found</p>}
+          <div className="py-4">
+            {selectedRoute?.component || <p>Route not found</p>}
+          </div>
         </div>
       </motion.div>
     </>

@@ -29,7 +29,7 @@ function Home() {
   return (
     <>
       <main>
-        <div className="grid gap-4 p-4 grid-cols-[220px_1fr]">
+        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 p-4 ">
           <Sidebar theme={theme} />
           <Dashboard theme={theme} handleTheme={handleTheme} />
         </div>

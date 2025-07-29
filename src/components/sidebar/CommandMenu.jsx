@@ -1,4 +1,4 @@
-import { Command } from "cmdk";
+import { Command, CommandItem } from "cmdk";
 import { useEffect, useState } from "react";
 import { useLogin } from "../../store/store";
 import { IoChatboxEllipses } from "react-icons/io5";
