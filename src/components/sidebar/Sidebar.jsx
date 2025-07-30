@@ -30,6 +30,16 @@ function Sidebar({ theme, handleTheme }) {
               }`}
               alt="horizon logo"
               onClick={() => setOpen(!open)}
+              className="md:hidden"
+            />
+            <img
+              src={`${
+                theme === "forest"
+                  ? "/media/logo-white.png"
+                  : "/media/logo-black.png"
+              }`}
+              alt="horizon logo"
+              className="hidden md:flex"
             />
           </div>
         </div>
