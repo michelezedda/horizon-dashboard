@@ -1,20 +1,17 @@
+import { useEffect, useState } from "react";
 import { useSelectedUser, useLogin } from "../store/store";
 import { motion } from "motion/react";
 
 function Navbar({ handleTheme }) {
+  const [greeting, setGreeting] = useState("");
   const { selectedUser } = useSelectedUser();
   const { login, setLogin } = useLogin();
 
-  const welcomeMessage = () => {
-    const message = ["Welcome", "Hi", "Hello", "Howdy"];
-    const randomMessage = Math.floor(Math.random() * message.length);
-    return (
-      <h2 className="mr-2 pl-2">
-        {message[randomMessage]},{" "}
-        <span className="font-bold">{selectedUser.name}</span>
-      </h2>
-    );
-  };
+  useEffect(() => {
+    const messages = ["Welcome", "Hi", "Hello", "Howdy"];
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    setGreeting(randomMessage);
+  }, []);
 
   return (
     <>
@@ -32,7 +29,9 @@ function Navbar({ handleTheme }) {
             role="button"
             tabIndex={0}
           >
-            {welcomeMessage()}
+            <h2 className="mr-2 pl-2">
+              {greeting}, <span className="font-bold">{selectedUser.name}</span>
+            </h2>
             <div className="btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img src={selectedUser.img} alt="user icon" />

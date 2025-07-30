@@ -19,9 +19,6 @@ function Home() {
           <div className="gap-4 p-4">
             <Dashboard theme={theme} handleTheme={handleTheme} />
           </div>
-          <div className="mx-4 bottom-0">
-            <Footer theme={theme} login={login} />
-          </div>
         </main>
       </>
     );
@@ -30,11 +27,8 @@ function Home() {
     <>
       <main>
         <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 p-4 ">
-          <Sidebar theme={theme} />
+          <Sidebar theme={theme} handleTheme={handleTheme} />
           <Dashboard theme={theme} handleTheme={handleTheme} />
-        </div>
-        <div className="mx-4">
-          <Footer theme={theme} login={login} />
         </div>
       </main>
     </>

@@ -3,6 +3,7 @@ import { useSelectedUser, useLogin, useSelectedRoute } from "../../store/store";
 import users from "../../data/users";
 import { useState } from "react";
 import { motion } from "motion/react";
+import Footer from "../Footer";
 
 function Dashboard({ theme, handleTheme }) {
   const [loginError, setLoginError] = useState(false);
@@ -35,7 +36,7 @@ function Dashboard({ theme, handleTheme }) {
     return (
       <>
         <div className="rounded-2xl shadow-lg" data-theme={theme}>
-          <div className="w-max-full">
+          <div className="w-max-full p-20">
             <div className="flex flex-col justify-start items-center">
               <img
                 src={`${
@@ -120,6 +121,7 @@ function Dashboard({ theme, handleTheme }) {
               </svg>
             </label>
           </div>
+          <Footer />
         </div>
       </>
     );
@@ -134,15 +136,16 @@ function Dashboard({ theme, handleTheme }) {
           duration: 0.4,
           scale: { type: "spring", visualDuration: 0.4, bounce: 0.1 },
         }}
-        className="theme-mode rounded-2xl shadow-lg h-max-[100dvh]"
+        className="min-h-screen flex flex-col rounded-2xl shadow-lg"
         data-theme={theme}
       >
-        <div>
+        <div className="flex-grow">
           <Navbar theme={theme} handleTheme={handleTheme} />
           <div className="py-4">
             {selectedRoute?.component || <p>Route not found</p>}
           </div>
         </div>
+        <Footer />
       </motion.div>
     </>
   );

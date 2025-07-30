@@ -1,10 +1,10 @@
-import { Command, CommandItem } from "cmdk";
+import { Command } from "cmdk";
 import { useEffect, useState } from "react";
 import { useLogin } from "../../store/store";
 import { IoChatboxEllipses } from "react-icons/io5";
-import { CgLogOut } from "react-icons/cg";
+import { CgLogOut, CgDarkMode } from "react-icons/cg";
 
-export const CommandMenu = ({ open, setOpen, theme }) => {
+export const CommandMenu = ({ open, setOpen, theme, handleTheme }) => {
   const [value, setValue] = useState("");
   const { setLogin } = useLogin();
   // Toggle the menu when ⌘K is pressed
@@ -30,14 +30,14 @@ export const CommandMenu = ({ open, setOpen, theme }) => {
       data-theme={theme}
     >
       <div
-        className="rounded-2xl shadow-lg border p-4 overflow-hidden w-full max-w-lg mx-auto mt-12 bg-white"
+        className="rounded-2xl shadow-lg border p-4 overflow-hidden w-full max-w-lg mx-auto mt-12 bg-neutral-500/80"
         onClick={(e) => e.stopPropagation()}
       >
         <Command.Input
           value={value}
           onValueChange={setValue}
           placeholder="What do you need?"
-          className="relative border-b p-3 text-lg w-full focus:outline-none"
+          className="relative border-b p-3 text-lg w-full focus:outline-none rounded-2xl"
           data-theme={theme}
         />
         <Command.List>
@@ -46,19 +46,27 @@ export const CommandMenu = ({ open, setOpen, theme }) => {
           </Command.Empty>
 
           <Command.Group>
-            <Command.Item className="btn flex my-2">
+            <Command.Item className="btn flex mt-2">
               <IoChatboxEllipses />
               Contact support
             </Command.Item>
-            <Command.Item
-              className="btn flex my-2"
+            <button className="btn w-full mt-2" onClick={handleTheme}>
+              <Command.Item className="flex items-center gap-2">
+                <CgDarkMode />
+                Change theme
+              </Command.Item>
+            </button>
+            <button
+              className="btn w-full mt-2"
               onClick={() => {
                 setLogin(false);
               }}
             >
-              <CgLogOut />
-              Log out
-            </Command.Item>
+              <Command.Item className="flex items-center gap-2">
+                <CgLogOut />
+                Log out
+              </Command.Item>
+            </button>
           </Command.Group>
         </Command.List>
       </div>

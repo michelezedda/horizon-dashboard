@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CommandMenu } from "./CommandMenu";
 
-function Search({ theme }) {
+function Search({ theme, handleTheme }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -35,7 +35,12 @@ function Search({ theme }) {
         <kbd className="kbd kbd-sm">⌘</kbd>
         <kbd className="kbd kbd-sm">K</kbd>
       </label>
-      <CommandMenu open={open} setOpen={setOpen} theme={theme} />
+      <CommandMenu
+        open={open}
+        setOpen={setOpen}
+        theme={theme}
+        handleTheme={handleTheme}
+      />
     </>
   );
 }

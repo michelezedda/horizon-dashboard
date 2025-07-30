@@ -1,8 +1,10 @@
-import { FiCalendar, FiDollarSign, FiHome, FiUsers } from "react-icons/fi";
+import { FiCalendar, FiDollarSign, FiHome, FiHeart } from "react-icons/fi";
 import { useState } from "react";
 import { useSelectedRoute } from "../../store/store";
 import MyCalendar from "../MyCalendar";
 import Grid from "../dashboard/Grid";
+import Fitness from "../Fitness";
+import Finance from "../Finance";
 
 function RouteSelect() {
   const [selected, setSelected] = useState("Dashboard");
@@ -14,16 +16,16 @@ function RouteSelect() {
       icon: FiCalendar,
       component: <MyCalendar />,
     },
-    // {
-    //   title: "Team",
-    //   icon: FiUsers,
-    //   component: <Team />,
-    // },
-    // {
-    //   title: "Finance",
-    //   icon: FiDollarSign,
-    //   component: <Finance />,
-    // },
+    {
+      title: "Fitness",
+      icon: FiHeart,
+      component: <Fitness />,
+    },
+    {
+      title: "Finance",
+      icon: FiDollarSign,
+      component: <Finance />,
+    },
   ];
   const handleSelect = (route) => {
     setSelected(route.title);
@@ -31,7 +33,7 @@ function RouteSelect() {
   };
 
   return (
-    <div className="space-y-1 mt-4 gap-2 flex md:flex-col">
+    <div className="space-y-1 mt-4 gap-2 grid grid-cols-2 md:grid-cols-1">
       {routes.map((route) => (
         <Route
           key={route.title}

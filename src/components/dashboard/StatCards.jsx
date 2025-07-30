@@ -52,8 +52,8 @@ const Card = ({ title, value, pillText, trend, period }) => {
             {trend === "up" ? <FiTrendingUp /> : <FiTrendingDown />}
             {pillText}
           </span>
-          <p className="text-xd text-stone-500">{period}</p>
         </div>
+        <p className="text-xd text-stone-500">{period}</p>
       </div>
     </>
   );
