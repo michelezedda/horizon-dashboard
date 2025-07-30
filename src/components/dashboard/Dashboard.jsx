@@ -48,10 +48,10 @@ function Dashboard({ theme, handleTheme }) {
               />
               <div className="flex flex-col justify-center items-center mt-6 gap-2 text-xl">
                 <p>Select user</p>
-                <form className="flex flex-col gap-2 mb-20">
+                <form className="flex flex-col gap-2">
                   <select
                     value={selectedUser || ""}
-                    className="select w-100"
+                    className="select w-70"
                     onChange={(e) =>
                       setSelectedUser(JSON.parse(e.target.value))
                     }
@@ -69,7 +69,7 @@ function Dashboard({ theme, handleTheme }) {
                     <input
                       type="password"
                       placeholder="Your password"
-                      className="input w-100"
+                      className="input w-70"
                       name="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
