@@ -22,6 +22,7 @@ function Sidebar({ theme, handleTheme }) {
       >
         <div className="flex justify-center shadow-sm p-1.5">
           <div className="btn btn-ghost btn-d w-30 py-6">
+            {/* Mobile btn */}
             <img
               src={`${
                 theme === "forest"
@@ -32,6 +33,7 @@ function Sidebar({ theme, handleTheme }) {
               onClick={() => setOpen(!open)}
               className="md:hidden"
             />
+            {/* Desktop btn */}
             <img
               src={`${
                 theme === "forest"
@@ -43,7 +45,23 @@ function Sidebar({ theme, handleTheme }) {
             />
           </div>
         </div>
-        <div className={`p-2 ${open ? "visible" : "hidden"}`}>
+        {/* Mobile sidebar */}
+        <div className={`p-2 ${open ? "visible" : "hidden"} md:hidden`}>
+          <Search theme={theme} handleTheme={handleTheme} />
+          <RouteSelect />
+          <div className="md:absolute bottom-2 left-0 p-2 w-full">
+            <button
+              className="btn btn-outline w-full"
+              onClick={() => {
+                setLogin(false);
+              }}
+            >
+              Log out
+            </button>
+          </div>
+        </div>
+        {/* Desktop sidebar */}
+        <div className="p-2 hidden md:flex md:flex-col">
           <Search theme={theme} handleTheme={handleTheme} />
           <RouteSelect />
           <div className="md:absolute bottom-2 left-0 p-2 w-full">

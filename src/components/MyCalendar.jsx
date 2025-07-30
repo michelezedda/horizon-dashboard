@@ -71,7 +71,7 @@ function MyCalendar() {
 
   return (
     <div>
-      <h1 className="text-center text-3xl font-semibold mt-4">Calendar</h1>
+      <h1 className="text-center text-3xl font-semibold mt-2">Calendar</h1>
       <div className="flex flex-col gap-2 m-2">
         <h2 className="text-xl font-medium">Add new event</h2>
         <input

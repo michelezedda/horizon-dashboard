@@ -1,5 +1,5 @@
 import StatCards from "./StatCards";
-import ActivityGraph from "../ActivityGraph";
+import ActivityGraph from "./ActivityGraph";
 import UsageRadar from "./UsageRadar";
 import RecentTransactions from "./RecentTransactions";
 
