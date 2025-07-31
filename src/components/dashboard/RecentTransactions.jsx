@@ -7,54 +7,53 @@ function RecentTransactions() {
         <h3 className="flex items-center gap-1.5 font-medium">
           <FiDollarSign /> Recent Transactions
         </h3>
-        <button className="text-sm text-violet-500 hover:underline">
+        <button className="text-sm hover:underline cursor-pointer">
           See all
         </button>
       </div>
       <table className="w-full table-auto">
         <TableHead />
-
         <tbody>
           <TableRow
             cusId="#48149"
-            sku="Pro 1 Month"
-            date="Aug 2nd"
-            price="$9.75"
+            sku="Gym Pro membership 1 Month"
+            date="Aug 1st"
+            price="$44.75"
             order={1}
           />
           <TableRow
             cusId="#1942s"
-            sku="Pro 3 Month"
-            date="Aug 2nd"
+            sku="Gym backpack"
+            date="Jul 24th"
             price="$21.25"
             order={2}
           />
           <TableRow
             cusId="#4192"
-            sku="Pro 1 Year"
-            date="Aug 1st"
-            price="$94.75"
+            sku="Gym shorts"
+            date="Jul 15th"
+            price="$24.75"
             order={3}
           />
           <TableRow
             cusId="#99481"
-            sku="Pro 1 Month"
-            date="Aug 1st"
-            price="$9.44"
+            sku="Gym Pro membership 1 Month"
+            date="Jul 1st"
+            price="$44.75"
             order={4}
           />
           <TableRow
             cusId="#1304"
-            sku="Pro 1 Month"
-            date="Aug 1st"
-            price="$9.23"
+            sku="Gym Pro membership 1 Month"
+            date="Jun 1st"
+            price="$44.75"
             order={5}
           />
           <TableRow
             cusId="#1304"
-            sku="Pro 3 Month"
-            date="Jul 31st"
-            price="$22.02"
+            sku="MyFitnessPal subscription 1 Year"
+            date="Jun 17th"
+            price="$22.98"
             order={6}
           />
         </tbody>
