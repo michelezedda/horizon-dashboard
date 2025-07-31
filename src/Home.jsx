@@ -1,12 +1,11 @@
 import Dashboard from "./components/dashboard/Dashboard";
 import Sidebar from "./components/sidebar/Sidebar";
-import Footer from "./components/Footer";
-import useLocalStorage from "./localStorage/useLocalStorage";
 import { useLogin } from "./store/store";
+import useLocalStorage from "./localStorage/useLocalStorage";
 
 function Home() {
-  const [theme, setTheme] = useLocalStorage("theme", "cupcake");
   const { login } = useLogin();
+  const [theme, setTheme] = useLocalStorage("theme", "cupcake");
 
   const handleTheme = () => {
     setTheme(theme === "cupcake" ? "forest" : "cupcake");

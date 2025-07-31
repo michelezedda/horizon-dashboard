@@ -13,7 +13,7 @@ function Grid() {
 
   return (
     <>
-      <div className="flex flex-col px-4 gap-2">
+      <div className="flex flex-col gap-2">
         <h2 className="mt-2 text-xl">
           Today is <span className="font-semibold">{today}</span>
         </h2>

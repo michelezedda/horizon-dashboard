@@ -1,38 +1,26 @@
 export const usageData = [
   {
-    subject: "Math",
+    subject: "PUSH",
     A: 120,
     B: 110,
     fullMark: 150,
   },
   {
-    subject: "Chinese",
+    subject: "PULL",
     A: 98,
     B: 130,
     fullMark: 150,
   },
   {
-    subject: "English",
+    subject: "LEGS",
     A: 86,
     B: 130,
     fullMark: 150,
   },
   {
-    subject: "Geography",
+    subject: "CARDIO",
     A: 99,
     B: 100,
-    fullMark: 150,
-  },
-  {
-    subject: "Physics",
-    A: 85,
-    B: 90,
-    fullMark: 150,
-  },
-  {
-    subject: "History",
-    A: 65,
-    B: 85,
     fullMark: 150,
   },
 ];

@@ -1,32 +1,34 @@
 import { FiCalendar, FiDollarSign, FiHome, FiHeart } from "react-icons/fi";
+import { GoGoal } from "react-icons/go";
 import { useState } from "react";
 import { useSelectedRoute } from "../../store/store";
-import MyCalendar from "../MyCalendar";
+import MyCalendar from "../dashboard/MyCalendar";
 import Grid from "../dashboard/Grid";
-import Fitness from "../Fitness";
-import Finance from "../Finance";
+import WorkoutLog from "../dashboard/WorkoutLog";
+import Goals from "../dashboard/Goals";
 
 function RouteSelect() {
   const [selected, setSelected] = useState("Dashboard");
   const { setSelectedRoute } = useSelectedRoute();
   const routes = [
-    { title: "Dashboard", icon: FiHome, path: "/", component: <Grid /> },
+    { title: "Overview", icon: FiHome, path: "/", component: <Grid /> },
     {
       title: "Calendar",
       icon: FiCalendar,
       component: <MyCalendar />,
     },
     {
-      title: "Fitness",
+      title: "Workout Log",
       icon: FiHeart,
-      component: <Fitness />,
+      component: <WorkoutLog />,
     },
     {
-      title: "Finance",
-      icon: FiDollarSign,
-      component: <Finance />,
+      title: "Goals",
+      icon: GoGoal,
+      component: <Goals />,
     },
   ];
+
   const handleSelect = (route) => {
     setSelected(route.title);
     setSelectedRoute(route);

@@ -13,7 +13,7 @@ import { activityData } from "../../data/activityData";
 
 function ActivityGraph() {
   return (
-    <div className="overflow-hidden rounded border border-stone-300 basis-3/4">
+    <div className="overflow-hidden rounded border border-stone-300 basis-4/6">
       <div className="p-4">
         <h3 className="flex items-center gap-1.5 font-medium">
           <FiUser />
@@ -30,11 +30,11 @@ function ActivityGraph() {
             <Legend />
             <Line
               type="monotone"
-              dataKey="pv"
+              dataKey="steps"
               stroke="#8884d8"
               activeDot={{ r: 8 }}
             />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+            <Line type="monotone" dataKey="exercise" stroke="#82ca9d" />
           </LineChart>
         </ResponsiveContainer>
       </div>

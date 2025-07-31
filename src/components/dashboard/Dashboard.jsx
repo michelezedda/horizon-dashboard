@@ -1,9 +1,10 @@
 import Navbar from "../Navbar";
 import { useSelectedUser, useLogin, useSelectedRoute } from "../../store/store";
-import users from "../../data/users";
+import { usersData } from "../../data/usersData";
 import { useState } from "react";
 import { motion } from "motion/react";
 import Footer from "../Footer";
+import Profile from "../Profile";
 
 function Dashboard({ theme, handleTheme }) {
   const [loginError, setLoginError] = useState(false);
@@ -59,7 +60,7 @@ function Dashboard({ theme, handleTheme }) {
                     <option value="" disabled>
                       Pick a user
                     </option>
-                    {users.map((user) => (
+                    {usersData.map((user) => (
                       <option key={user.id} value={JSON.stringify(user)}>
                         {user.name}
                       </option>
@@ -141,12 +142,11 @@ function Dashboard({ theme, handleTheme }) {
       >
         <div className="flex-grow">
           <Navbar theme={theme} handleTheme={handleTheme} />
-          <div className="py-4">
-            {selectedRoute?.component || <p>Route not found</p>}
-          </div>
+          <div className="py-4 px-4">{selectedRoute.component}</div>
         </div>
         <Footer />
       </motion.div>
+      <Profile />
     </>
   );
 }

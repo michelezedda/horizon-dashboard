@@ -7,7 +7,7 @@ import { enUS } from "date-fns/locale";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
-import useLocalStorage from "../localStorage/useLocalStorage";
+import useLocalStorage from "../../localStorage/useLocalStorage";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
