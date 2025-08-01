@@ -14,9 +14,11 @@ function Dashboard({ theme, handleTheme }) {
     useSelectedUser();
   const { selectedRoute } = useSelectedRoute();
 
+  // Handle user login form submission
   const handleUserLogin = (e) => {
     e.preventDefault();
 
+    // Password check: password must be equal to "password"
     if (password === "password") {
       setLoading(true);
       setTimeout(() => {
@@ -33,6 +35,7 @@ function Dashboard({ theme, handleTheme }) {
     }
   };
 
+  // Render login form if user not logged in
   if (!login) {
     return (
       <>
@@ -127,7 +130,7 @@ function Dashboard({ theme, handleTheme }) {
       </>
     );
   }
-
+  // Render main dashboard if logged in
   return (
     <>
       <motion.div

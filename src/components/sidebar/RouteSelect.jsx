@@ -29,6 +29,7 @@ function RouteSelect() {
     },
   ];
 
+  // Handle route selection to update the dashboard display
   const handleSelect = (route) => {
     setSelected(route.title);
     setSelectedRoute(route);
@@ -51,6 +52,7 @@ function RouteSelect() {
 
 export default RouteSelect;
 
+// Button component representing a single route item
 const Route = ({ selected, Icon, title, onClick }) => {
   return (
     <button className={`btn ${!selected && "btn-ghost"}`} onClick={onClick}>

@@ -13,6 +13,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
 
+// Setup localization for react-big-calendar using date-fns
 const locales = { "en-US": enUS };
 const localizer = dateFnsLocalizer({
   format,
@@ -21,6 +22,7 @@ const localizer = dateFnsLocalizer({
   getDay,
   locales,
 });
+// Wrap calendar with drag-and-drop support
 const DnDCalendar = withDragAndDrop(Calendar);
 
 function MyCalendar() {
@@ -36,6 +38,7 @@ function MyCalendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentView, setCurrentView] = useState("month");
 
+  // Ensure events have Date objects for start and end
   const events = Array.isArray(storedEvents)
     ? storedEvents.map((e) => ({
         ...e,
@@ -44,18 +47,22 @@ function MyCalendar() {
       }))
     : [];
 
+  // Generate next event ID (simple incremental)
   const getNextId = () =>
     events.length ? Math.max(...events.map((e) => e.id)) + 1 : 1;
 
+  // Add new event if all fields are valid
   const handleAddEvent = () => {
     if (!newEvent.title || !newEvent.start || !newEvent.end) return;
 
     const nextId = getNextId();
     const eventToAdd = { ...newEvent, id: nextId };
+    // Save new event to stored events and reset input fields
     setStoredEvents([...events, eventToAdd]);
     setNewEvent({ title: "", start: null, end: null });
   };
 
+  // Update event's start and end when dragged or resized
   const handleEventDropOrResize = ({ event, start, end }) => {
     const updated = events.map((e) =>
       e.id === event.id ? { ...e, start, end } : e
@@ -63,6 +70,7 @@ function MyCalendar() {
     setStoredEvents(updated);
   };
 
+  // Delete event after confirmation when selected (clicked)
   const handleSelectEvent = (event) => {
     if (window.confirm(`Delete event "${event.title}"?`)) {
       setStoredEvents(events.filter((e) => e.id !== event.id));
@@ -72,6 +80,7 @@ function MyCalendar() {
   return (
     <div>
       <h1 className="text-center text-3xl font-semibold mt-2">Calendar</h1>
+      {/* Form to add new events */}
       <div className="flex flex-col gap-2 m-2">
         <h2 className="text-xl font-medium">Add new event</h2>
         <input
@@ -102,6 +111,7 @@ function MyCalendar() {
           Add event
         </button>
       </div>
+      {/* Drag-and-drop calendar component */}
       <DnDCalendar
         localizer={localizer}
         events={events}

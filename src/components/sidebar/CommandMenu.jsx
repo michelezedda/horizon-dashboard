@@ -7,9 +7,11 @@ import { CgLogOut, CgDarkMode } from "react-icons/cg";
 export const CommandMenu = ({ open, setOpen, theme, handleTheme }) => {
   const [value, setValue] = useState("");
   const { setLogin } = useLogin();
-  // Toggle the menu when ⌘K is pressed
+
+  // Effect to toggle the command menu when user presses ⌘K (or Ctrl+K on Windows)
   useEffect(() => {
     const down = (e) => {
+      // Check if 'k' is pressed while meta (Cmd on Mac) or ctrl key is held
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);

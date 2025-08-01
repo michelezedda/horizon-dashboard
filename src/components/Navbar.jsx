@@ -7,6 +7,7 @@ function Navbar({ handleTheme }) {
   const { selectedUser } = useSelectedUser();
   const { login, setLogin } = useLogin();
 
+  // Pick a random greeting message
   useEffect(() => {
     const messages = ["Welcome", "Hi", "Hello", "Howdy"];
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
@@ -16,6 +17,7 @@ function Navbar({ handleTheme }) {
   return (
     <>
       <nav className="navbar flex justify-end rounded-t-2xl shadow-sm">
+        {/* Show user info dropdown only if logged in */}
         {login && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -29,17 +31,21 @@ function Navbar({ handleTheme }) {
             role="button"
             tabIndex={0}
           >
+            {/* Greeting */}
             <h2 className="mr-2 pl-2">
               {greeting}, <span className="font-bold">{selectedUser.name}</span>
             </h2>
+            {/* User avatar */}
             <div className="btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img src={selectedUser.img} alt="user icon" />
               </div>
+              {/* Dropdown menu */}
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-12 w-52 p-2 shadow"
               >
+                {/* Open profile modal */}
                 <li
                   onClick={() =>
                     document.getElementById("my_modal_3").showModal()
@@ -53,6 +59,7 @@ function Navbar({ handleTheme }) {
                 <li>
                   <a>Settings</a>
                 </li>
+                {/* Log out button */}
                 <li
                   onClick={() => {
                     setLogin(false);
@@ -64,6 +71,7 @@ function Navbar({ handleTheme }) {
             </div>
           </motion.div>
         )}
+        {/* Theme toggle switch */}
         <label className="toggle text-base-content mx-2">
           <input
             type="checkbox"
@@ -71,7 +79,7 @@ function Navbar({ handleTheme }) {
             className="theme-controller"
             onChange={handleTheme}
           />
-
+          {/* Sun icon for light mode */}
           <svg
             aria-label="sun"
             xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +103,7 @@ function Navbar({ handleTheme }) {
               <path d="m19.07 4.93-1.41 1.41"></path>
             </g>
           </svg>
-
+          {/* Moon icon for dark mode */}
           <svg
             aria-label="moon"
             xmlns="http://www.w3.org/2000/svg"

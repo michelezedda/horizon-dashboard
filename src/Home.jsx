@@ -7,10 +7,12 @@ function Home() {
   const { login } = useLogin();
   const [theme, setTheme] = useLocalStorage("theme", "cupcake");
 
+  // Toggle between 'cupcake' and 'forest' themes
   const handleTheme = () => {
     setTheme(theme === "cupcake" ? "forest" : "cupcake");
   };
 
+  // If user is not logged in, show only Dashboard
   if (!login) {
     return (
       <>
@@ -22,6 +24,7 @@ function Home() {
       </>
     );
   }
+  // If user is logged in, show Sidebar alongside Dashboard
   return (
     <>
       <main>
