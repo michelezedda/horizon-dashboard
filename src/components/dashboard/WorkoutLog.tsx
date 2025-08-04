@@ -1,4 +1,4 @@
-import ActivityGraph from "./ActivityGraph";
+import ActivityGraph from "./ActivityGraph.js";
 
 function WorkoutLog() {
   return (

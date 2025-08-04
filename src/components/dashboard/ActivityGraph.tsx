@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { activityData } from "../../data/activityData";
+import { activityData } from "../../data/activityData.js";
 
 function ActivityGraph() {
   return (

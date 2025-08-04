@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CommandMenu } from "./CommandMenu";
+import { CommandMenu } from "./CommandMenu.js";
 
 function Search({ theme, handleTheme }) {
   const [open, setOpen] = useState(false);

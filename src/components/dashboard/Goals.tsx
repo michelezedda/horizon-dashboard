@@ -1,6 +1,6 @@
 import { Cell, Pie, PieChart } from "recharts";
-import { pieData } from "../../data/pieData";
-import StatCards from "./StatCards";
+import { pieData } from "../../data/pieData.js";
+import StatCards from "./StatCards.js";
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 function Goals() {

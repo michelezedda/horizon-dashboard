@@ -1,11 +1,13 @@
-import Dashboard from "./components/dashboard/Dashboard";
-import Sidebar from "./components/sidebar/Sidebar";
-import { useLogin } from "./store/store";
-import useLocalStorage from "./localStorage/useLocalStorage";
+import Dashboard from "./components/dashboard/Dashboard.js";
+import Sidebar from "./components/sidebar/Sidebar.js";
+import { useLogin } from "./store/store.js";
+import useLocalStorage from "./localStorage/useLocalStorage.js";
+
+type Theme = "cupcake" | "forest";
 
 function Home() {
   const { login } = useLogin();
-  const [theme, setTheme] = useLocalStorage("theme", "cupcake");
+  const [theme, setTheme] = useLocalStorage<Theme>("theme", "cupcake");
 
   // Toggle between 'cupcake' and 'forest' themes
   const handleTheme = () => {

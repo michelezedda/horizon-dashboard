@@ -7,7 +7,7 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
-import { usageData } from "../../data/usageData";
+import { usageData } from "../../data/usageData.js";
 
 function UsageRadar() {
   return (

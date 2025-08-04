@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import Search from "./Search";
-import RouteSelect from "./RouteSelect";
-import { useLogin } from "../../store/store";
+import Search from "./Search.js";
+import RouteSelect from "./RouteSelect.js";
+import { useLogin } from "../../store/store.js";
 import { useState } from "react";
 
 function Sidebar({ theme, handleTheme }) {

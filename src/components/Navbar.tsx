@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
-import { useSelectedUser, useLogin } from "../store/store";
+import { useSelectedUser, useLogin } from "../store/store.js";
 import { motion } from "motion/react";
 
-function Navbar({ handleTheme }) {
-  const [greeting, setGreeting] = useState("");
+type Theme = "cupcake" | "forest";
+
+type NavbarProps = {
+  handleTheme: () => void;
+};
+
+function Navbar({ handleTheme }: NavbarProps) {
+  const [greeting, setGreeting] = useState<string>("");
   const { selectedUser } = useSelectedUser();
   const { login, setLogin } = useLogin();
 
@@ -11,7 +17,7 @@ function Navbar({ handleTheme }) {
   useEffect(() => {
     const messages = ["Welcome", "Hi", "Hello", "Howdy"];
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    setGreeting(randomMessage);
+    setGreeting(randomMessage ?? "");
   }, []);
 
   return (
@@ -33,12 +39,13 @@ function Navbar({ handleTheme }) {
           >
             {/* Greeting */}
             <h2 className="mr-2 pl-2">
-              {greeting}, <span className="font-bold">{selectedUser.name}</span>
+              {greeting},{" "}
+              <span className="font-bold">{selectedUser?.name}</span>
             </h2>
             {/* User avatar */}
             <div className="btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={selectedUser.img} alt="user icon" />
+                <img src={selectedUser?.img} alt="user icon" />
               </div>
               {/* Dropdown menu */}
               <ul
@@ -47,9 +54,12 @@ function Navbar({ handleTheme }) {
               >
                 {/* Open profile modal */}
                 <li
-                  onClick={() =>
-                    document.getElementById("my_modal_3").showModal()
-                  }
+                  onClick={() => {
+                    const modal = document.getElementById("my_modal_3");
+                    if (modal && "showModal" in modal) {
+                      (modal as HTMLDialogElement).showModal();
+                    }
+                  }}
                 >
                   <a className="justify-between">
                     Profile

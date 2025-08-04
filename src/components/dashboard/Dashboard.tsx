@@ -1,21 +1,32 @@
-import Navbar from "../Navbar";
-import { useSelectedUser, useLogin, useSelectedRoute } from "../../store/store";
-import { usersData } from "../../data/usersData";
+import Navbar from "../Navbar.js";
+import {
+  useSelectedUser,
+  useLogin,
+  useSelectedRoute,
+} from "../../store/store.js";
+import { usersData } from "../../data/usersData.js";
 import { useState } from "react";
 import { motion } from "motion/react";
-import Footer from "../Footer";
-import Profile from "../Profile";
+import Footer from "../Footer.js";
+import Profile from "../Profile.js";
 
-function Dashboard({ theme, handleTheme }) {
-  const [loginError, setLoginError] = useState(false);
-  const [loading, setLoading] = useState(false);
+type Theme = "cupcake" | "forest";
+
+type DashboardProps = {
+  theme: Theme;
+  handleTheme: () => void;
+};
+
+function Dashboard({ theme, handleTheme }: DashboardProps) {
+  const [loginError, setLoginError] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const { login, setLogin } = useLogin();
   const { selectedUser, setSelectedUser, password, setPassword } =
     useSelectedUser();
   const { selectedRoute } = useSelectedRoute();
 
   // Handle user login form submission
-  const handleUserLogin = (e) => {
+  const handleUserLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
     // Password check: password must be equal to "password"
@@ -54,7 +65,7 @@ function Dashboard({ theme, handleTheme }) {
                 <p>Select user</p>
                 <form className="flex flex-col gap-2">
                   <select
-                    value={selectedUser || ""}
+                    value={selectedUser?.name || ""}
                     className="select w-70"
                     onChange={(e) =>
                       setSelectedUser(JSON.parse(e.target.value))
@@ -104,9 +115,9 @@ function Dashboard({ theme, handleTheme }) {
             </div>
           </div>
           <div className="flex justify-end p-4">
-            <label className="swap swap-rotate" onChange={handleTheme}>
+            <label className="swap swap-rotate">
               {/* this hidden checkbox controls the state */}
-              <input type="checkbox" />
+              <input type="checkbox" onChange={handleTheme} />
               {/* sun icon */}
               <svg
                 className="swap-on h-10 w-10 fill-current"
@@ -144,7 +155,7 @@ function Dashboard({ theme, handleTheme }) {
         data-theme={theme}
       >
         <div className="flex-grow">
-          <Navbar theme={theme} handleTheme={handleTheme} />
+          <Navbar handleTheme={handleTheme} />
           <div className="py-4 px-4">{selectedRoute.component}</div>
         </div>
         <Footer />

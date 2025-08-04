@@ -1,11 +1,11 @@
 import { FiCalendar, FiDollarSign, FiHome, FiHeart } from "react-icons/fi";
 import { GoGoal } from "react-icons/go";
 import { useState } from "react";
-import { useSelectedRoute } from "../../store/store";
-import MyCalendar from "../dashboard/MyCalendar";
-import Grid from "../dashboard/Grid";
-import WorkoutLog from "../dashboard/WorkoutLog";
-import Goals from "../dashboard/Goals";
+import { useSelectedRoute } from "../../store/store.js";
+import MyCalendar from "../dashboard/MyCalendar.js";
+import Grid from "../dashboard/Grid.js";
+import WorkoutLog from "../dashboard/WorkoutLog.js";
+import Goals from "../dashboard/Goals.js";
 
 function RouteSelect() {
   const [selected, setSelected] = useState("Dashboard");

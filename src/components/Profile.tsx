@@ -1,13 +1,24 @@
-import useLocalStorage from "../localStorage/useLocalStorage";
+import useLocalStorage from "../localStorage/useLocalStorage.js";
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  age: number;
+  feet: number;
+  inches: number;
+  pounds: number;
+  stepsPerDayGoal: number;
+  workoutsPerWeekGoal: number;
+};
 
 function Profile() {
-  const [formData, setFormData] = useLocalStorage("profile", {
+  const [formData, setFormData] = useLocalStorage<FormData>("profile", {
     firstName: "",
     lastName: "",
     age: 13,
     feet: 0,
     inches: 0,
-    weight: 0,
+    pounds: 0,
     stepsPerDayGoal: 10000,
     workoutsPerWeekGoal: 3,
   });
@@ -57,7 +68,7 @@ function Profile() {
                 className="input input-neutral"
                 value={formData.age}
                 onChange={(e) =>
-                  setFormData({ ...formData, age: e.target.value })
+                  setFormData({ ...formData, age: Number(e.target.value) })
                 }
               />
             </div>
@@ -69,7 +80,7 @@ function Profile() {
                 className="input input-neutral"
                 value={formData.feet}
                 onChange={(e) =>
-                  setFormData({ ...formData, feet: e.target.value })
+                  setFormData({ ...formData, feet: Number(e.target.value) })
                 }
               />
               <input
@@ -78,7 +89,7 @@ function Profile() {
                 className="input input-neutral"
                 value={formData.inches}
                 onChange={(e) =>
-                  setFormData({ ...formData, inches: e.target.value })
+                  setFormData({ ...formData, inches: Number(e.target.value) })
                 }
               />
             </div>
@@ -90,7 +101,7 @@ function Profile() {
                 className="input input-neutral"
                 value={formData.pounds}
                 onChange={(e) =>
-                  setFormData({ ...formData, pounds: e.target.value })
+                  setFormData({ ...formData, pounds: Number(e.target.value) })
                 }
               />
             </div>
@@ -105,7 +116,10 @@ function Profile() {
                 max="20000"
                 value={formData.stepsPerDayGoal}
                 onChange={(e) =>
-                  setFormData({ ...formData, stepsPerDayGoal: e.target.value })
+                  setFormData({
+                    ...formData,
+                    stepsPerDayGoal: Number(e.target.value),
+                  })
                 }
                 className="range"
               />
@@ -123,7 +137,7 @@ function Profile() {
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    workoutsPerWeekGoal: e.target.value,
+                    workoutsPerWeekGoal: Number(e.target.value),
                   })
                 }
                 className="range"

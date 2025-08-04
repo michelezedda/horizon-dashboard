@@ -1,6 +1,6 @@
 import { Command } from "cmdk";
 import { useEffect, useState } from "react";
-import { useLogin } from "../../store/store";
+import { useLogin } from "../../store/store.js";
 import { IoChatboxEllipses } from "react-icons/io5";
 import { CgLogOut, CgDarkMode } from "react-icons/cg";
 

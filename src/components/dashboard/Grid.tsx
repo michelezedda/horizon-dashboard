@@ -1,7 +1,7 @@
-import StatCards from "./StatCards";
-import ActivityGraph from "./ActivityGraph";
-import UsageRadar from "./UsageRadar";
-import RecentTransactions from "./RecentTransactions";
+import StatCards from "./StatCards.js";
+import ActivityGraph from "./ActivityGraph.js";
+import UsageRadar from "./UsageRadar.js";
+import RecentTransactions from "./RecentTransactions.js";
 
 function Grid() {
   const today = new Date().toLocaleString("en-US", {
