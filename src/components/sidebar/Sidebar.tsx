@@ -14,7 +14,8 @@ function Sidebar({ theme, handleTheme }) {
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{
-          duration: 0.4,
+          duration: 0.8,
+          visualDuration: 0.8,
           ease: "easeOut",
         }}
         className="overflow-hidden md:overflow-y-auto sticky z-30 top-4 md:h-[calc(100dvh-32px-48px)] rounded-2xl drop-shadow-xl md:drop-shadow-none border-b border-neutral-300 md:border-none md:shadow-lg"
