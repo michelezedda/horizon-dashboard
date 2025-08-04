@@ -11,7 +11,7 @@ function RouteSelect() {
   const [selected, setSelected] = useState("Dashboard");
   const { setSelectedRoute } = useSelectedRoute();
   const routes = [
-    { title: "Overview", icon: FiHome, path: "/", component: <Grid /> },
+    { title: "Overview", icon: FiHome, component: <Grid /> },
     {
       title: "Calendar",
       icon: FiCalendar,
