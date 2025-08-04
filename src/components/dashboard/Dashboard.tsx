@@ -9,13 +9,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import Footer from "../Footer.js";
 import Profile from "../Profile.js";
-
-type Theme = "cupcake" | "forest";
-
-type DashboardProps = {
-  theme: Theme;
-  handleTheme: () => void;
-};
+import type { DashboardProps } from "../../types/types.tsx";
 
 function Dashboard({ theme, handleTheme }: DashboardProps) {
   const [loginError, setLoginError] = useState<boolean>(false);

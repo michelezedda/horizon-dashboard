@@ -2,8 +2,7 @@ import Dashboard from "./components/dashboard/Dashboard.js";
 import Sidebar from "./components/sidebar/Sidebar.js";
 import { useLogin } from "./store/store.js";
 import useLocalStorage from "./localStorage/useLocalStorage.js";
-
-type Theme = "cupcake" | "forest";
+import type { Theme } from "./types/types.tsx";
 
 function Home() {
   const { login } = useLogin();

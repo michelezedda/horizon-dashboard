@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { CommandMenu } from "./CommandMenu.js";
+import type { SearchProps } from "../../types/types.tsx";
 
-function Search({ theme, handleTheme }) {
+function Search({ theme, handleTheme }: SearchProps) {
   const [open, setOpen] = useState(false);
 
   return (

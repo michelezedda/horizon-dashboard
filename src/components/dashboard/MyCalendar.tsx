@@ -1,13 +1,15 @@
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import format from "date-fns/format";
-import parse from "date-fns/parse";
-import startOfWeek from "date-fns/startOfWeek";
-import getDay from "date-fns/getDay";
+import { format } from "date-fns";
+import { parse } from "date-fns/parse";
+import { startOfWeek } from "date-fns/startOfWeek";
+import { getDay } from "date-fns/getDay";
 import { enUS } from "date-fns/locale";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import useLocalStorage from "../../localStorage/useLocalStorage.js";
+
+import type { CalendarEvent, NewEvent } from "../../types/types.tsx";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
@@ -26,11 +28,11 @@ const localizer = dateFnsLocalizer({
 const DnDCalendar = withDragAndDrop(Calendar);
 
 function MyCalendar() {
-  const [storedEvents, setStoredEvents] = useLocalStorage(
+  const [storedEvents, setStoredEvents] = useLocalStorage<CalendarEvent[]>(
     "calendar-events",
     []
   );
-  const [newEvent, setNewEvent] = useState({
+  const [newEvent, setNewEvent] = useState<NewEvent>({
     title: "",
     start: null,
     end: null,
@@ -42,8 +44,8 @@ function MyCalendar() {
   const events = Array.isArray(storedEvents)
     ? storedEvents.map((e) => ({
         ...e,
-        start: new Date(e.start),
-        end: new Date(e.end),
+        start: e.start ? new Date(e.start) : null,
+        end: e.end ? new Date(e.end) : null,
       }))
     : [];
 
@@ -63,7 +65,15 @@ function MyCalendar() {
   };
 
   // Update event's start and end when dragged or resized
-  const handleEventDropOrResize = ({ event, start, end }) => {
+  const handleEventDropOrResize = ({
+    event,
+    start,
+    end,
+  }: {
+    event: CalendarEvent;
+    start: Date;
+    end: Date;
+  }) => {
     const updated = events.map((e) =>
       e.id === event.id ? { ...e, start, end } : e
     );
@@ -71,7 +81,7 @@ function MyCalendar() {
   };
 
   // Delete event after confirmation when selected (clicked)
-  const handleSelectEvent = (event) => {
+  const handleSelectEvent = (event: CalendarEvent) => {
     if (window.confirm(`Delete event "${event.title}"?`)) {
       setStoredEvents(events.filter((e) => e.id !== event.id));
     }
@@ -93,14 +103,18 @@ function MyCalendar() {
         <DatePicker
           placeholderText="Start date"
           className="input w-full"
-          selected={newEvent.start}
-          onChange={(start) => setNewEvent({ ...newEvent, start })}
+          selected={newEvent.start || undefined}
+          onChange={(date: Date | null) =>
+            setNewEvent({ ...newEvent, start: date })
+          }
         />
         <DatePicker
           placeholderText="End date"
           className="input w-full"
-          selected={newEvent.end}
-          onChange={(end) => setNewEvent({ ...newEvent, end })}
+          selected={newEvent.end || undefined}
+          onChange={(date: Date | null) =>
+            setNewEvent({ ...newEvent, end: date })
+          }
           minDate={newEvent.start}
         />
         <button
@@ -127,6 +141,7 @@ function MyCalendar() {
         onNavigate={setCurrentDate}
         onView={setCurrentView}
         onSelectEvent={handleSelectEvent}
+        popup
       />
     </div>
   );

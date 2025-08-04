@@ -1,16 +1,22 @@
 import { Command } from "cmdk";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactElement } from "react";
 import { useLogin } from "../../store/store.js";
 import { IoChatboxEllipses } from "react-icons/io5";
 import { CgLogOut, CgDarkMode } from "react-icons/cg";
+import type { CommandMenuProps } from "../../types/types.tsx";
 
-export const CommandMenu = ({ open, setOpen, theme, handleTheme }) => {
-  const [value, setValue] = useState("");
+export const CommandMenu = ({
+  open,
+  setOpen,
+  theme,
+  handleTheme,
+}: CommandMenuProps) => {
+  const [value, setValue] = useState<string>("");
   const { setLogin } = useLogin();
 
   // Effect to toggle the command menu when user presses ⌘K (or Ctrl+K on Windows)
   useEffect(() => {
-    const down = (e) => {
+    const down = (e: KeyboardEvent) => {
       // Check if 'k' is pressed while meta (Cmd on Mac) or ctrl key is held
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
@@ -52,23 +58,20 @@ export const CommandMenu = ({ open, setOpen, theme, handleTheme }) => {
               <IoChatboxEllipses />
               Contact support
             </Command.Item>
-            <button className="btn w-full mt-2" onClick={handleTheme}>
-              <Command.Item className="flex items-center gap-2">
-                <CgDarkMode />
-                Change theme
-              </Command.Item>
-            </button>
-            <button
-              className="btn w-full mt-2"
-              onClick={() => {
-                setLogin(false);
-              }}
+            <Command.Item
+              className="btn flex items-center gap-2 mt-2"
+              onSelect={handleTheme}
             >
-              <Command.Item className="flex items-center gap-2">
-                <CgLogOut />
-                Log out
-              </Command.Item>
-            </button>
+              <CgDarkMode />
+              Change theme
+            </Command.Item>
+            <Command.Item
+              className="btn flex items-center gap-2 mt-2"
+              onSelect={() => setLogin(false)}
+            >
+              <CgLogOut />
+              Log out
+            </Command.Item>
           </Command.Group>
         </Command.List>
       </div>

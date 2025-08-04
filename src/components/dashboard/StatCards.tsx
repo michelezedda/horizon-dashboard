@@ -1,5 +1,6 @@
 import { IoFootsteps, IoBarbell, IoStopwatch } from "react-icons/io5";
 import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
+import type { CardProps } from "../../types/types.tsx";
 
 function StatCards() {
   return (
@@ -36,7 +37,14 @@ function StatCards() {
 
 export default StatCards;
 
-const Card = ({ Icon = FiCircle, title, value, pillText, trend, period }) => {
+const Card = ({
+  Icon = FiCircle,
+  title,
+  value,
+  pillText,
+  trend,
+  period,
+}: CardProps) => {
   return (
     <>
       <div className="p-4 border-stone-300 col-span-4 border rounded w-full">

@@ -1,4 +1,5 @@
 import { FiArrowUpRight, FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
+import type { TableRowProps } from "../../types/types.tsx";
 
 function RecentTransactions() {
   return (
@@ -78,7 +79,7 @@ const TableHead = () => {
   );
 };
 
-const TableRow = ({ cusId, sku, date, price, order }) => {
+const TableRow = ({ cusId, sku, date, price, order }: TableRowProps) => {
   return (
     <tr className={order % 2 ? "bg-stone-100 text-sm" : "text-sm"}>
       <td className="p-1.5">

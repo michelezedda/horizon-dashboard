@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelectedUser, useLogin } from "../store/store.js";
 import { motion } from "motion/react";
-
-type Theme = "cupcake" | "forest";
-
-type NavbarProps = {
-  handleTheme: () => void;
-};
+import type { NavbarProps } from "../types/types.ts";
 
 function Navbar({ handleTheme }: NavbarProps) {
   const [greeting, setGreeting] = useState<string>("");

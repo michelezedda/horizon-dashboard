@@ -3,9 +3,10 @@ import Search from "./Search.js";
 import RouteSelect from "./RouteSelect.js";
 import { useLogin } from "../../store/store.js";
 import { useState } from "react";
+import type { SidebarProps } from "../../types/types.tsx";
 
-function Sidebar({ theme, handleTheme }) {
-  const [open, setOpen] = useState(false);
+function Sidebar({ theme, handleTheme }: SidebarProps) {
+  const [open, setOpen] = useState<boolean>(false);
   const { setLogin } = useLogin();
 
   return (

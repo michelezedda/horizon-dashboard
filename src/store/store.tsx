@@ -1,34 +1,10 @@
 import { create } from "zustand";
 import Grid from "../components/dashboard/Grid.jsx";
-import type { ReactElement } from "react";
-
-type User = {
-  id: string;
-  name: string;
-  img: string;
-};
-
-type SelectedUserStore = {
-  selectedUser: User | null;
-  password: string;
-  setSelectedUser: (name: User | null) => void;
-  setPassword: (password: string) => void;
-};
-
-type LoginStore = {
-  login: boolean;
-  setLogin: (login: boolean) => void;
-};
-
-type Route = {
-  title: string;
-  component: ReactElement;
-};
-
-type SelectedRouteStore = {
-  selectedRoute: Route;
-  setSelectedRoute: (route: Route) => void;
-};
+import type {
+  SelectedUserStore,
+  LoginStore,
+  SelectedRouteStore,
+} from "../types/types.tsx";
 
 // Store to manage selected user and their password
 export const useSelectedUser = create<SelectedUserStore>((set) => ({

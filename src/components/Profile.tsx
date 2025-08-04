@@ -1,15 +1,5 @@
 import useLocalStorage from "../localStorage/useLocalStorage.js";
-
-type FormData = {
-  firstName: string;
-  lastName: string;
-  age: number;
-  feet: number;
-  inches: number;
-  pounds: number;
-  stepsPerDayGoal: number;
-  workoutsPerWeekGoal: number;
-};
+import type { FormData } from "../types/types.tsx";
 
 function Profile() {
   const [formData, setFormData] = useLocalStorage<FormData>("profile", {
