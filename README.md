@@ -13,6 +13,7 @@ Horizon is a clean and responsive fitness dashboard built for users who want to 
 
 - **Frontend:**
   - React
+  - TypeScript
   - Tailwind CSS
   - Vite (for faster builds)
   - react-router-dom (for page navigation)
