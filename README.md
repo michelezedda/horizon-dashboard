@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://i.ibb.co/qLB0MLqf/horizon-project.png" alt="Horizon">
+  <img src="https://i.ibb.co/spCLhbD5/horizon-project.webp" alt="Horizon">
   <br>
 </h1>
 
