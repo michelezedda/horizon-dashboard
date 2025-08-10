@@ -3,6 +3,7 @@ import Sidebar from "./components/sidebar/Sidebar.js";
 import { useLogin } from "./store/store.js";
 import useLocalStorage from "./localStorage/useLocalStorage.js";
 import type { Theme } from "./types/types.tsx";
+import { useEffect } from "react";
 
 function Home() {
   const { login } = useLogin();
@@ -12,6 +13,10 @@ function Home() {
   const handleTheme = () => {
     setTheme(theme === "cupcake" ? "forest" : "cupcake");
   };
+
+  useEffect(() => {
+    document.body.setAttribute("data-theme", theme);
+  }, [theme]);
 
   // If user is not logged in, show only Dashboard
   if (!login) {

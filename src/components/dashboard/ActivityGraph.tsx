@@ -13,7 +13,7 @@ import { activityData } from "../../data/activityData.js";
 
 function ActivityGraph() {
   return (
-    <div className="overflow-hidden rounded border border-stone-300 basis-4/6">
+    <div className="overflow-hidden rounded border border-stone-400 basis-4/6">
       <div className="p-4">
         <h3 className="flex items-center gap-1.5 font-medium">
           <FiUser />

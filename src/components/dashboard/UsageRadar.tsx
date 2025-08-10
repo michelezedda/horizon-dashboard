@@ -12,7 +12,7 @@ import { usageData } from "../../data/usageData.js";
 function UsageRadar() {
   return (
     <>
-      <div className="overflow-hidden rounded border border-stone-300 basis-2/6">
+      <div className="overflow-hidden rounded border border-stone-400 basis-2/6">
         <div className="p-4">
           <h3 className="flex items-center gap-1.5 font-medium">
             <FiEye /> Workouts

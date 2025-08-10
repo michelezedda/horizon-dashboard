@@ -3,7 +3,7 @@ import type { TableRowProps } from "../../types/types.tsx";
 
 function RecentTransactions() {
   return (
-    <div className="col-span-12 p-4 rounded border border-stone-300">
+    <div className="col-span-12 p-4 rounded border border-stone-400">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="flex items-center gap-1.5 font-medium">
           <FiDollarSign /> Recent Transactions

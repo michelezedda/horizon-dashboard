@@ -44,7 +44,11 @@ function Dashboard({ theme, handleTheme }: DashboardProps) {
   if (!login) {
     return (
       <>
-        <div className="rounded-2xl shadow-lg" data-theme={theme}>
+        <div
+          className="rounded-2xl shadow-lg"
+          data-theme={theme}
+          id="dashboard"
+        >
           <div className="w-max-full p-20">
             <div className="flex flex-col justify-start items-center">
               <img
@@ -139,6 +143,7 @@ function Dashboard({ theme, handleTheme }: DashboardProps) {
   return (
     <>
       <motion.div
+        id="dashboard"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{

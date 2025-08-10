@@ -8,7 +8,7 @@ function Goals() {
     <>
       <div>
         <h1 className="text-center text-3xl font-semibold mt-2">Goals</h1>
-        <div className="flex justify-center gap-10 border-1 rounded border-stone-300">
+        <div className="flex justify-center gap-10 border-1 rounded border-stone-400">
           <PieChart width={300} height={400}>
             <Pie
               data={pieData}

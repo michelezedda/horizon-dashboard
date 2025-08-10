@@ -47,7 +47,7 @@ const Card = ({
 }: CardProps) => {
   return (
     <>
-      <div className="p-4 border-stone-300 col-span-4 border rounded w-full">
+      <div className="p-4 border-stone-400 col-span-4 border rounded w-full">
         <div className="flex mb-8 items-start justify-between">
           <div className="flex gap-1.5">
             <Icon />

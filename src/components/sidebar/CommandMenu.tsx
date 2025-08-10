@@ -35,7 +35,6 @@ export const CommandMenu = ({
       label="Global Command Menu"
       className="fixed inset-0 z-50 bg-stone-950/50"
       onClick={() => setOpen(false)}
-      data-theme={theme}
     >
       <div
         className="rounded-2xl shadow-lg border p-4 overflow-hidden w-full max-w-lg mx-auto mt-12 bg-neutral-500/80"
