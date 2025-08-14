@@ -20,7 +20,6 @@ Horizon is a clean and responsive fitness dashboard built for users who want to 
   - recharts (for graphs)
   - react-icons (for UI icons)
   - DaisyUI (for component styling)
-  - localStorage (for persisting client-side data)
   - Zustand (for global state management)
   - Motion (for smooth animations)
   - react-big-calendar (for scheduling and calendar views)
