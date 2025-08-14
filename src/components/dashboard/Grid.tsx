@@ -13,17 +13,17 @@ function Grid() {
 
   return (
     <>
-      <div className="flex flex-col gap-2">
-        <h2 className="mt-2 text-xl">
+      <section className="flex flex-col gap-2">
+        <h1 className="mt-2 text-xl">
           Today is <span className="font-semibold">{today}</span>
-        </h2>
+        </h1>
         <StatCards />
         <div className="flex flex-col lg:flex-row gap-2">
           <ActivityGraph />
           <UsageRadar />
         </div>
         <RecentTransactions />
-      </div>
+      </section>
     </>
   );
 }

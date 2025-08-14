@@ -88,7 +88,7 @@ function MyCalendar() {
   };
 
   return (
-    <div>
+    <section>
       <h1 className="text-center text-3xl font-semibold mt-2">Calendar</h1>
       {/* Form to add new events */}
       <div className="flex flex-col gap-2 m-2">
@@ -143,7 +143,7 @@ function MyCalendar() {
         onSelectEvent={handleSelectEvent}
         popup
       />
-    </div>
+    </section>
   );
 }
 

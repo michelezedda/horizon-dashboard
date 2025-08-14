@@ -44,7 +44,7 @@ function Dashboard({ theme, handleTheme }: DashboardProps) {
   if (!login) {
     return (
       <>
-        <div className="flex flex-col items-center mx-auto max-w-screen-2xl">
+        <section className="flex flex-col items-center mx-auto max-w-screen-2xl">
           <div
             className="rounded-2xl w-full shadow-lg"
             data-theme={theme}
@@ -140,7 +140,7 @@ function Dashboard({ theme, handleTheme }: DashboardProps) {
             </div>
             <Footer />
           </div>
-        </div>
+        </section>
       </>
     );
   }
