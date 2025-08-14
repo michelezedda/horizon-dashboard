@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useSelectedUser, useLogin } from "../store/store.js";
+import { useSelectedUser, useProfile } from "../store/store.js";
 import { motion } from "motion/react";
 import type { NavbarProps } from "../types/types.ts";
 
 function Navbar({ handleTheme }: NavbarProps) {
   const [greeting, setGreeting] = useState<string>("");
   const { selectedUser } = useSelectedUser();
-  const { login, setLogin } = useLogin();
+  const { login, setLogin } = useProfile();
 
   // Pick a random greeting message
   useEffect(() => {

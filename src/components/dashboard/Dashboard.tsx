@@ -1,7 +1,7 @@
 import Navbar from "../Navbar.js";
 import {
   useSelectedUser,
-  useLogin,
+  useProfile,
   useSelectedRoute,
 } from "../../store/store.js";
 import { usersData } from "../../data/usersData.js";
@@ -14,7 +14,7 @@ import type { DashboardProps } from "../../types/types.tsx";
 function Dashboard({ theme, handleTheme }: DashboardProps) {
   const [loginError, setLoginError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const { login, setLogin } = useLogin();
+  const { login, setLogin } = useProfile();
   const { selectedUser, setSelectedUser, password, setPassword } =
     useSelectedUser();
   const { selectedRoute } = useSelectedRoute();

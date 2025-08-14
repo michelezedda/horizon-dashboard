@@ -1,6 +1,6 @@
 import { Command } from "cmdk";
-import { useEffect, useState, type ReactElement } from "react";
-import { useLogin } from "../../store/store.js";
+import { useEffect, useState } from "react";
+import { useProfile } from "../../store/store.js";
 import { IoChatboxEllipses } from "react-icons/io5";
 import { CgLogOut, CgDarkMode } from "react-icons/cg";
 import type { CommandMenuProps } from "../../types/types.tsx";
@@ -12,7 +12,7 @@ export const CommandMenu = ({
   handleTheme,
 }: CommandMenuProps) => {
   const [value, setValue] = useState<string>("");
-  const { setLogin } = useLogin();
+  const { setLogin } = useProfile();
 
   // Effect to toggle the command menu when user presses ⌘K (or Ctrl+K on Windows)
   useEffect(() => {

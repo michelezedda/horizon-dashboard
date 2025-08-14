@@ -7,13 +7,13 @@ import { enUS } from "date-fns/locale";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
-import useLocalStorage from "../../localStorage/useLocalStorage.js";
 
 import type { CalendarEvent, NewEvent } from "../../types/types.tsx";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
+import { useCalendar } from "../../store/store.js";
 
 // Setup localization for react-big-calendar using date-fns
 const locales = { "en-US": enUS };
@@ -28,10 +28,6 @@ const localizer = dateFnsLocalizer({
 const DnDCalendar = withDragAndDrop(Calendar);
 
 function MyCalendar() {
-  const [storedEvents, setStoredEvents] = useLocalStorage<CalendarEvent[]>(
-    "calendar-events",
-    []
-  );
   const [newEvent, setNewEvent] = useState<NewEvent>({
     title: "",
     start: null,
@@ -39,6 +35,8 @@ function MyCalendar() {
   });
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentView, setCurrentView] = useState("month");
+
+  const { storedEvents, setStoredEvents } = useCalendar();
 
   // Ensure events have Date objects for start and end
   const events = Array.isArray(storedEvents)

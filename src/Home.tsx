@@ -1,13 +1,11 @@
 import Dashboard from "./components/dashboard/Dashboard.js";
 import Sidebar from "./components/sidebar/Sidebar.js";
-import { useLogin } from "./store/store.js";
-import useLocalStorage from "./localStorage/useLocalStorage.js";
-import type { Theme } from "./types/types.tsx";
+import { useProfile, useTheme } from "./store/store.js";
 import { useEffect } from "react";
 
 function Home() {
-  const { login } = useLogin();
-  const [theme, setTheme] = useLocalStorage<Theme>("theme", "cupcake");
+  const { login } = useProfile();
+  const { theme, setTheme } = useTheme();
 
   // Toggle between 'cupcake' and 'forest' themes
   const handleTheme = () => {

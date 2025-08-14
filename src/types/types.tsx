@@ -16,9 +16,21 @@ export type SelectedUserStore = {
   setPassword: (password: string) => void;
 };
 
-export type LoginStore = {
+export type ProfileStore = {
   login: boolean;
   setLogin: (login: boolean) => void;
+  formData: FormData;
+  setFormData: (formData: FormData) => void;
+};
+
+export type CalendarStore = {
+  storedEvents: CalendarEvent[];
+  setStoredEvents: (event: CalendarEvent[]) => void;
+};
+
+export type ThemeStore = {
+  theme: string;
+  setTheme: (theme: string) => void;
 };
 
 export type Route = {

@@ -1,13 +1,13 @@
 import { motion } from "motion/react";
 import Search from "./Search.js";
 import RouteSelect from "./RouteSelect.js";
-import { useLogin } from "../../store/store.js";
+import { useProfile } from "../../store/store.js";
 import { useState } from "react";
 import type { SidebarProps } from "../../types/types.tsx";
 
 function Sidebar({ theme, handleTheme }: SidebarProps) {
   const [open, setOpen] = useState<boolean>(false);
-  const { setLogin } = useLogin();
+  const { setLogin } = useProfile();
 
   return (
     <>
