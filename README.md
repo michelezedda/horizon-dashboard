@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-<img width="2309" height="1271" alt="horizon1" src="https://github.com/user-attachments/assets/9243b3db-5e2d-4494-8aea-32daf8c1aba7" />
+<img width="2294" height="1303" alt="horizon2" src="https://github.com/user-attachments/assets/edb6b5e0-b884-49e3-bbbb-312c1792806d" />
   <br>
 </h1>
 
