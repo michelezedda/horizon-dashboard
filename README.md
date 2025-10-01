@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://i.ibb.co/dwng6d7W/horizon-pr.png" alt="Horizon" width="1100">
+<img width="2294" height="1303" alt="horizon2" src="https://github.com/user-attachments/assets/edb6b5e0-b884-49e3-bbbb-312c1792806d" />
   <br>
 </h1>
 
@@ -20,7 +20,6 @@ Horizon is a clean and responsive fitness dashboard built for users who want to 
   - recharts (for graphs)
   - react-icons (for UI icons)
   - DaisyUI (for component styling)
-  - localStorage (for persisting client-side data)
   - Zustand (for global state management)
   - Motion (for smooth animations)
   - react-big-calendar (for scheduling and calendar views)
@@ -83,3 +82,10 @@ Ensure the following tools are installed on your machine:
     ```bash
     yarn dev
     ```
+    
+ ## Screenshots
+   <div align="center">
+<img width="2309" height="1271" alt="horizon1" src="https://github.com/user-attachments/assets/9243b3db-5e2d-4494-8aea-32daf8c1aba7" />
+<img width="2294" height="1303" alt="horizon2" src="https://github.com/user-attachments/assets/edb6b5e0-b884-49e3-bbbb-312c1792806d" />
+<img width="2294" height="1303" alt="horizon3" src="https://github.com/user-attachments/assets/a023e3b8-0888-41e4-b2e1-273013b9689a" />
+</div>
