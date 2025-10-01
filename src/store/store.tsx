@@ -6,6 +6,7 @@ import type {
   ProfileStore,
   SelectedRouteStore,
   CalendarStore,
+  ThemeStore,
 } from "../types/types.tsx";
 
 // Store to manage selected user and their password

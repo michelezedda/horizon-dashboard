@@ -1,7 +1,8 @@
-import { useProfile } from "../store/store.js";
+import { useProfile, useSelectedUser } from "../store/store.js";
 
 function Profile() {
   const { formData, setFormData } = useProfile();
+  const { selectedUser, setSelectedUser } = useSelectedUser();
 
   return (
     <>
@@ -14,6 +15,24 @@ function Profile() {
           </form>
           <h1 className="text-center text-3xl font-semibold mt-2">Profile</h1>
           <div className="flex flex-col mt-4 gap-4 md:gap-2">
+            <div className="flex justify-between items-center">
+              <img
+                src={selectedUser?.img}
+                alt="user icon"
+                className="h-12 rounded-full"
+              />
+              <input
+                type="file"
+                className="file-input"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file && selectedUser) {
+                    const imgUrl = URL.createObjectURL(file);
+                    setSelectedUser({ ...selectedUser, img: imgUrl });
+                  }
+                }}
+              />
+            </div>
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2">
               <p className="font-semibold">First name</p>
               <input
