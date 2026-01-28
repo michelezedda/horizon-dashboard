@@ -2,7 +2,6 @@ import { FiCalendar, FiHome, FiHeart } from "react-icons/fi";
 import { GoGoal } from "react-icons/go";
 import { useState } from "react";
 import { useSelectedRoute } from "../../store/store.js";
-import MyCalendar from "../dashboard/MyCalendar.js";
 import Grid from "../dashboard/Grid.js";
 import WorkoutLog from "../dashboard/WorkoutLog.js";
 import Goals from "../dashboard/Goals.js";
@@ -13,11 +12,6 @@ function RouteSelect() {
   const { setSelectedRoute } = useSelectedRoute();
   const routes: Route[] = [
     { title: "Overview", icon: FiHome, component: <Grid /> },
-    {
-      title: "Calendar",
-      icon: FiCalendar,
-      component: <MyCalendar />,
-    },
     {
       title: "Workout Log",
       icon: FiHeart,
